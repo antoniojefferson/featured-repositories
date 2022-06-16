@@ -56,6 +56,9 @@ bundle
 ### Set environment variables
 Using [dotenv](https://github.com/bkeepers/dotenv)
 
+```
+cp .env.local.sample .env
+```
 
 When running without the docker environment, modify the .env file, passing your database parameters.
 ```
