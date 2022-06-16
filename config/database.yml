@@ -16,4 +16,4 @@ test:
 
 production:
   <<: *default
-  database: featured_repositories_production
+  database: <%= ENV.fetch("POSTGRES_DATABASE") %>
