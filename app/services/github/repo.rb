@@ -15,10 +15,10 @@ module Github
 
     def self.current_tag(url)
       result = response(url)
-      
+
       return '' if result.class == Hash
       
-      result.first[:name]
+      result.first["name"]
     end
 
     def self.get_languages(url)
