@@ -1,2 +1,19 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+@import 'repositories';
+
+html, body, main {
+  font-family: var(--bs-font-sans-serif);
+  background-color: #f8f9fa;
+}
+
+main {
+  padding: 15px;
+}
+
+.text-max-two-line {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
