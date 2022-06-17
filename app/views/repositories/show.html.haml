@@ -2,14 +2,14 @@
   
   .presentation-card
     .d-flex.justify-content-between
-      %h4 Detalhes do repositorio
+      %h4 Detalhes
       = button_to 'Voltar', root_path, method: :get, class: 'btn btn-outline-dark'
 
     .row
-      .col-12.d-flex
-        .image{ style: "background-image: url(#{@repository.avatar_url})" }
+      .col-12.d-flex.col-header
+        .image.bg-image{ style: "background-image: url(#{@repository.avatar_url})" }
         .container-header
-          %h4
+          %h5
             %span.fw-bold Nome completo:
             = @repository.full_name
 
@@ -24,7 +24,7 @@
                 %span.badge.rounded-pill.bg-dark.mb-1= language
     %hr
 
-    .d-flex.justify-content-between.mb-3
+    .d-flex.justify-content-between.flex-wrap.mb-3
       %div
         %i.bi.bi-star{ title: 'Favoritado' }
         = @repository.stargazers_count
@@ -49,28 +49,28 @@
         %span.fw-bold Descrição:
         = @repository.description
       
-      .col-4
+      .col-sm-12.col-md-4.col-lg-4
         %span.fw-bold Principal linguagem:
         = @repository.language
 
-      .col-4
+      .col-sm-12.col-md-4.col-lg-4
         %span.fw-bold Data de criação:
         = @repository.created.to_date
 
-      .col-4
+      .col-sm-12.col-md-4.col-lg-4
         %span.fw-bold Ultima atualização:
         = @repository.pushed.to_date
 
     .row.mb-3
       - if @repository.languages.present?
-        .col-6
-          %h6.fw-bold Percentual por linguagens
+        .col-sm-12.col-md-6.col-lg-6
+          %h5.fw-bold Percentual por linguagens
           %div
             - get_json_keys(@repository.languages).each do |language|
               = render partial: 'progress_bar',locals: { percentage: get_percentage(@repository.languages, language), language: language }
 
-      .col-6
-        %h6.fw-bold Documentações
+      .col-sm-12.col-md-6.col-lg-6
+        %h5.fw-bold Documentações
         %p
           Visite a documentação e leia mais sobre esta tecnologia
           - if @repository.homepage.present?
