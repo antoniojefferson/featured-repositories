@@ -1,0 +1,25 @@
+%main
+  .d-flex.justify-content-center.w-100
+    - flash.each do |type, message|
+      %div{ class: "alert alert-#{ type == 'alert' ? 'danger' : 'success' } alert-dismissible fade show", style: "width: 50rem;", role: "alert" }
+        = message
+        %button{ type: "button", class: "btn-close", "data-bs-dismiss": "alert", "aria-label": "Close" }
+      
+  .banner.d-flex.justify-content-center.align-items-center
+    %span
+    .content.text-center
+      %h1{ class: 'text-white' } Repositorios
+      %p{ class: 'text-white' } Obtenha a lista dos 5 melhores repositorio da atualidade. Click no botão a baixo e confira.
+      = button_to 'Importar', new_repository_path, method: :get, class: 'btn btn-outline-light btn-lg', data: { disable_with: "Importando..." }
+    
+  .row.d-flex.justify-content-center.mt-65-negative
+    .col-11
+      .matte-container
+        - @repos.each do |repo|
+          .repository-card
+            .image{ style: "background-image: url(#{repo.avatar_url})" }
+            .content
+              = link_to repo do
+                %h5.text-uppercase.fw-bold= repo.name
+              %p.text-muted.fs-6.fst-italic.text-max-two-line= repo.full_name
+              %span.fs-6.text-max-two-line= repo.description
