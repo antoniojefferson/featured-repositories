@@ -1,0 +1,87 @@
+%main
+  
+  .presentation-card
+    .d-flex.justify-content-between
+      %h4 Detalhes do repositorio
+      = button_to 'Voltar', root_path, method: :get, class: 'btn btn-outline-dark'
+
+    .row
+      .col-12.d-flex
+        .image{ style: "background-image: url(#{@repository.avatar_url})" }
+        .container-header
+          %h4
+            %span.fw-bold Nome completo:
+            = @repository.full_name
+
+          %h5
+            %span.fw-bold Nome simples:
+            %span.text-muted.fst-italic= @repository.name
+          
+          %h5
+            %span.fw-bold Linguagens usadas:
+            %div
+              - get_json_keys(@repository.languages).each do |language|
+                %span.badge.rounded-pill.bg-dark.mb-1= language
+    %hr
+
+    .d-flex.justify-content-between.mb-3
+      %div
+        %i.bi.bi-star{ title: 'Favoritado' }
+        = @repository.stargazers_count
+
+      %div
+        %i.bi.bi-eye{ title: 'Vizualizações' }
+        = @repository.watchers_count
+
+      - if @repository.license.present?
+        %div
+          %i.bi.bi-file-earmark-medical{ title: 'Licensa' }
+          = @repository.license
+      
+      - if @repository.current_tag.present?
+        %div
+          %i.bi.bi-tag{ title: 'Tag atual' }
+          = @repository.current_tag
+
+
+    .row.mb-3
+      .col-12
+        %span.fw-bold Descrição:
+        = @repository.description
+      
+      .col-4
+        %span.fw-bold Principal linguagem:
+        = @repository.language
+
+      .col-4
+        %span.fw-bold Data de criação:
+        = @repository.created.to_date
+
+      .col-4
+        %span.fw-bold Ultima atualização:
+        = @repository.pushed.to_date
+
+    .row.mb-3
+      - if @repository.languages.present?
+        .col-6
+          %h6.fw-bold Percentual por linguagens
+          %div
+            - get_json_keys(@repository.languages).each do |language|
+              = render partial: 'progress_bar',locals: { percentage: get_percentage(@repository.languages, language), language: language }
+
+      .col-6
+        %h6.fw-bold Documentações
+        %p
+          Visite a documentação e leia mais sobre esta tecnologia
+          - if @repository.homepage.present?
+            = link_to "click aqui", @repository.homepage, target: "_blank"
+        %p
+          Visite o repositorio e veja o poder que ele pode te entregar
+          - if @repository.html_url.present?
+            = link_to "click aqui", @repository.html_url, target: "_blank"
+    
+    .row{ "data-controller": "action" }
+      .col-12
+        %h6 Delete este repositorio 
+        = button_to "Deletar", repository_path(@repository.id), method: :delete, class: 'btn btn-outline-danger',
+        data: { action: "action#delete" }
