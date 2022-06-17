@@ -17,3 +17,11 @@ main {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
+.bg-image {
+  border-radius: inherit;
+  border-right: 1px solid white;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
