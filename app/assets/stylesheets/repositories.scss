@@ -43,6 +43,10 @@
 
 .mt-65-negative {
   margin-top: -65px;
+  
+  .col-11 {
+    z-index: 2 !important;
+  }
 }
 
 .matte-container {

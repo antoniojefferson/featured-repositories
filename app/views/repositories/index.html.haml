@@ -20,8 +20,9 @@
             .repository-card
               .image.bg-image{ style: "background-image: url(#{repo.avatar_url})" }
               .content
-                = link_to repo do
-                  %h5.text-uppercase.fw-bold= repo.name
+                %h5.text-uppercase.fw-bold
+                  = link_to repo, class: "show-repo" do
+                    = repo.name
                 %span.text-muted.fs-6.fst-italic.text-max-two-line= repo.full_name
                 %span.fs-6.text-max-two-line= repo.description
         - else
