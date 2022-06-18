@@ -14,14 +14,18 @@ module Github
     end
 
     def self.current_tag(url)
+      return '' if url.blank?
+      
       result = response(url)
 
-      return '' if result.class == Hash
+      return '' if result.class == Hash || result.first["name"].present? == false
       
       result.first["name"]
     end
 
     def self.get_languages(url)
+      return '' if url.blank?
+
       result = response(url)
 
       return '' if result["message"].present?
