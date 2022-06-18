@@ -12,8 +12,6 @@ Capybara.register_driver :chrome do |app|
     )
 end
 
-Capybara.default_driver = :chrome
-Capybara.javascript_driver = :chrome
-
+Capybara.default_driver = :selenium
 Capybara.default_max_wait_time = 15
-Capybara.server = :webrick
+Capybara.server = :puma
