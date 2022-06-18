@@ -9,7 +9,7 @@ module JsonHelper
   end
 
   def get_percentage(hash, current_key)
-    return nil unless hash.present?
+    return 0 unless hash.class == Hash
 
     total = hash.values.sum{ |v| v.to_i }
     language_value = hash[current_key]
