@@ -53,6 +53,7 @@ gem "bootsnap", require: false
 
 gem 'pg', '1.1.4'
 gem 'haml'
+gem 'webrick'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -82,5 +83,8 @@ group :test do
   gem 'rails-controller-testing'
   gem 'ffaker'
   gem 'database_cleaner'
-  gem "webdrivers"
+  gem "webdrivers", '~> 4.4'
+  gem 'simplecov', require: false, group: :test
+  gem 'vcr', '~> 3.0', '>= 3.0.1'
+  gem 'webmock', '~> 3.14'
 end
