@@ -3,11 +3,11 @@ require 'net/http'
 module Github
   class Repo
     def self.search(object)
+      full_name = object[:full_name]
       language = object[:language]
-      framework = object[:framework]
 
-      result = response("#{ENV.fetch('API_GITHUB')}/search/repositories?q=#{framework}
-      +language:#{language}&sort=stars&order=desc&per_page=1")
+      result = response("#{ENV.fetch('API_GITHUB')}/search/repositories?q=#{full_name}
+      +language:#{language}&per_page=1")
 
       return nil if result['items'].blank?
 
@@ -18,8 +18,7 @@ module Github
       return '' if url.blank?
 
       result = response(url)
-
-      return '' if result.instance_of?(Hash) || result.first['name'].present? == false
+      return '' if result.instance_of?(Hash) || result.blank?
 
       result.first['name']
     end

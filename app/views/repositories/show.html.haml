@@ -17,11 +17,12 @@
             %span.fw-bold= t('pages.show.fields.name')
             %span.text-muted.fst-italic= @repository.name
           
-          %h5
-            %span.fw-bold= t('pages.show.fields.languages')
-            %div
-              - get_json_keys(@repository.languages).each do |language|
-                %span.badge.rounded-pill.bg-dark.mb-1= language
+          - if @repository.languages.present?
+            %h5
+              %span.fw-bold= t('pages.show.fields.languages')
+              %div
+                - get_json_keys(@repository.languages).each do |language|
+                  %span.badge.rounded-pill.bg-dark.mb-1= language
     %hr
 
     .d-flex.justify-content-between.flex-wrap.mb-3

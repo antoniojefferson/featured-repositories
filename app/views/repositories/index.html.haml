@@ -20,7 +20,7 @@
       .matte-container
         - if @repos.present?
           - @repos.each do |repo|
-            = link_to repo, class: "show-repo" do
+            = link_to repo, class: "repo-card" do
               .repository-card
                 .image.bg-image{ style: "background-image: url(#{repo.avatar_url})" }
                 .content
