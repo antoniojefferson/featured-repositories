@@ -6,21 +6,22 @@ module Github
       language = object[:language]
       framework = object[:framework]
 
-      result = response("#{ENV.fetch("API_GITHUB")}/search/repositories?q=#{framework}+language:#{language}&sort=stars&order=desc&per_page=1")
-      
-      return nil unless result["items"].present?
+      result = response("#{ENV.fetch('API_GITHUB')}/search/repositories?q=#{framework}
+      +language:#{language}&sort=stars&order=desc&per_page=1")
 
-      result["items"].first
+      return nil if result['items'].blank?
+
+      result['items'].first
     end
 
     def self.current_tag(url)
       return '' if url.blank?
-      
+
       result = response(url)
 
-      return '' if result.class == Hash || result.first["name"].present? == false
-      
-      result.first["name"]
+      return '' if result.class.instance_of?(Hash) || result.first['name'].present? == false
+
+      result.first['name']
     end
 
     def self.get_languages(url)
@@ -28,12 +29,10 @@ module Github
 
       result = response(url)
 
-      return '' if result["message"].present?
+      return '' if result['message'].present?
 
       result
     end
-
-    private
 
     def self.response(url)
       ActiveSupport::JSON.decode(
