@@ -24,7 +24,9 @@ class RepositoriesController < ApplicationController
   def destroy
     @repository.destroy
 
-    redirect_to root_path, notice: I18n.t('models.repository.delete.success', repo: @repository.name.capitalize)
+    msg = I18n.t('models.repository.delete.success', repo: @repository.name.capitalize)
+
+    redirect_to root_path, notice: msg
   end
 
   private
