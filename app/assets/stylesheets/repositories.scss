@@ -105,11 +105,6 @@
       padding: 10px 15px;
       height: inherit;
 
-      a {
-        text-decoration: none;
-        color: black;
-      }
-
       @include for-phone-only {
         h5 {
           @include fontSize(16px);
