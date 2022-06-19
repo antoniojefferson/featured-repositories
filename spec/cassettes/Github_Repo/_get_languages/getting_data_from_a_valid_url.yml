@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.github.com/repos/facebook/react/languages
+    uri: https://api.github.com/repos/ruby/ruby/languages
     body:
       encoding: US-ASCII
       string: ''
@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - GitHub.com
       Date:
-      - Sun, 19 Jun 2022 03:46:46 GMT
+      - Sun, 19 Jun 2022 20:17:47 GMT
       Content-Type:
       - application/json; charset=utf-8
       Cache-Control:
@@ -31,9 +31,9 @@ http_interactions:
       Vary:
       - Accept, Accept-Encoding, Accept, X-Requested-With
       Etag:
-      - W/"dace38ac5566b024f5724922bdf98dc99f8115ba57e3846d8d0f78f22fc342dc"
+      - W/"4653c9637282fc274c2d56725fe229569e041bb28d52e778cb87796e604c6ac0"
       Last-Modified:
-      - Sun, 19 Jun 2022 03:46:31 GMT
+      - Sun, 19 Jun 2022 18:07:59 GMT
       X-Github-Media-Type:
       - github.v3; format=json
       Access-Control-Expose-Headers:
@@ -58,22 +58,23 @@ http_interactions:
       X-Ratelimit-Limit:
       - '60'
       X-Ratelimit-Remaining:
-      - '27'
+      - '24'
       X-Ratelimit-Reset:
-      - '1655610880'
+      - '1655670980'
       X-Ratelimit-Resource:
       - core
       X-Ratelimit-Used:
-      - '33'
+      - '36'
       Accept-Ranges:
       - bytes
       Content-Length:
-      - '144'
+      - '262'
       X-Github-Request-Id:
-      - 12DE:393C:585D79:6696CC:62AE9C26
+      - 103C:3B4C:641A4A:760655:62AF846B
     body:
       encoding: ASCII-8BIT
-      string: '{"JavaScript":5957993,"HTML":119951,"CSS":63657,"C++":44278,"TypeScript":20868,"CoffeeScript":16826,"C":5225,"Shell":2331,"Python":259,"Makefile":189}'
+      string: '{"Ruby":33053955,"C":14228738,"C++":1557310,"Yacc":1151529,"Makefile":977837,"Rust":515001,"M4":180818,"Roff":116491,"Python":44062,"GDB":36134,"Ragel":30047,"HTML":21096,"CSS":17039,"Assembly":16488,"Shell":15475,"JavaScript":14769,"Batchfile":12158,"Emacs
+        Lisp":4051,"sed":1953,"Scheme":557,"Raku":497,"Perl":187,"Dockerfile":81}'
     http_version: 
-  recorded_at: Sun, 19 Jun 2022 03:46:47 GMT
+  recorded_at: Sun, 19 Jun 2022 20:17:47 GMT
 recorded_with: VCR 3.0.3
