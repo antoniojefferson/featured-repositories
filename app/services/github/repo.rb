@@ -19,7 +19,7 @@ module Github
 
       result = response(url)
 
-      return '' if result.class.instance_of?(Hash) || result.first['name'].present? == false
+      return '' if result.instance_of?(Hash) || result.first['name'].present? == false
 
       result.first['name']
     end
