@@ -82,7 +82,6 @@
     
     .row{ "data-controller": "action", "data-action-propt-msg-value": t('pages.show.buttons.delete.msg-propt') }
       .col-12
-        %h6= english_language
         %h6= t('pages.show.buttons.delete.description')
         = button_to t('pages.show.buttons.delete.text'), repository_path(@repository.id), method: :delete, class: 'btn btn-outline-danger',
         data: { action: "action#delete" }
