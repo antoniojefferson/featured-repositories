@@ -71,40 +71,9 @@
   flex-wrap: wrap;
 }
 
-.repository-card {
+.repo-card {
   width: 100%;
-  height: 110px;
-  display: flex;
-  background-color: white;
-  border-color: white;
-  margin: 10px 0;
-  border-radius: 0.75rem;
-  box-shadow: inset 0 0px 1px 1px white, 0 20px 27px 0 rgb(0 0 0 / 10%) !important;
-
-  .image {
-    width: 37%;
-    height: inherit;
-  }
-
-  .content {
-    flex: 1;
-    padding: 10px 15px;
-    height: inherit;
-
-    a {
-      text-decoration: none;
-      color: black;
-    }
-
-    @include for-phone-only {
-      h5 {
-        @include fontSize(16px);
-      }
-      span {
-        @include fontSize(12px);
-      }
-    }
-  }
+  text-decoration: none;
 
   @include for-tablet-only {
     width: 45%;
@@ -114,6 +83,42 @@
   @include for-desktop-only {
     width: 31%;
     height: 140px;
+  }
+  
+  .repository-card {
+    width: 100%;
+    color: black;
+    display: flex;
+    background-color: white;
+    border-color: white;
+    margin: 10px 0;
+    border-radius: 0.75rem;
+    box-shadow: inset 0 0px 1px 1px white, 0 20px 27px 0 rgb(0 0 0 / 10%) !important;
+
+    .image {
+      width: 37%;
+      height: inherit;
+    }
+
+    .content {
+      flex: 1;
+      padding: 10px 15px;
+      height: inherit;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      @include for-phone-only {
+        h5 {
+          @include fontSize(16px);
+        }
+        span {
+          @include fontSize(12px);
+        }
+      }
+    }
   }
 }
 
