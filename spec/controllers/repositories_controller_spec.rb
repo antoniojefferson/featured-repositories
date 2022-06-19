@@ -59,7 +59,7 @@ RSpec.describe RepositoriesController do
     end
 
     it 'returns notice' do
-      expect(flash[:notice]).to eq("Repositório do #{repository.name} foi removido!")
+      expect(flash[:notice]).to eq("Repositório do #{repository.name.capitalize} foi removido!")
     end
   end
 end

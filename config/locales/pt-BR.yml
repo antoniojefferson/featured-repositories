@@ -1,0 +1,49 @@
+pt-BR:
+  pages:
+    root:
+      title: Repositórios
+      subtitle: Obtenha os 5 melhores repositório do momento. Click no botão a baixo e confira.
+      empty-list: Nenhum repositório disponível para a apresentação.
+      buttons:
+        new: 
+          text: Importar
+          disabled-text: Importando...
+        language:
+          text: Usar idioma Inglês
+    show:
+      title: Detalhes
+      buttons:
+        delete:
+          text: Deletar
+          description: Delete este repositório
+          msg-propt: Deletar repositório?
+        back:
+          text: Voltar
+      fields:
+        full_name: 'Nome completo:'
+        name: 'Nome simples:'
+        languages: 'Linguagens usadas:'
+        favorite: Favoritado
+        views: Vizualizações
+        license: Licensa
+        tag: Tag atual
+        description: 'Descrição:'
+        language: 'Principal linguagem:'
+        created: 'Data de criação:'
+        pushed: 'Ultima atualização:'
+        percentage-languages: Percentual por linguagens
+      docs:
+        title: Documentações
+        documentation:
+          text: Visite a documentação e leia mais sobre esta tecnologia
+          text-link: click aqui
+        repository:
+          text: Visite o repositório e veja o poder que ele pode te entregar
+          text-link: click aqui
+  models:
+    repository:
+      save:
+        success: Repositórios encontrados e armazenados!
+        failure: Não foi possível obter todos os repositórios. Por favor, tente novamente!
+      delete:
+        success: Repositório do %{repo} foi removido!

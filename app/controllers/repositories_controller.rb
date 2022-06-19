@@ -13,9 +13,9 @@ class RepositoriesController < ApplicationController
     languages.each { |language| failures += 1 unless create_repo(language) }
 
     if failures.positive?
-      flash[:alert] = 'Não foi possível obter todos os repositórios. Por favor, tente novamente!'
+      flash[:alert] = I18n.t('models.repository.save.failure')
     else
-      flash[:notice] = 'Repositórios encontrados e armazenados!'
+      flash[:notice] = I18n.t('models.repository.save.success')
     end
 
     redirect_to action: :index
@@ -24,7 +24,7 @@ class RepositoriesController < ApplicationController
   def destroy
     @repository.destroy
 
-    redirect_to root_path, notice: "Repositório do #{@repository.name} foi removido!"
+    redirect_to root_path, notice: I18n.t('models.repository.delete.success', repo: @repository.name.capitalize)
   end
 
   private

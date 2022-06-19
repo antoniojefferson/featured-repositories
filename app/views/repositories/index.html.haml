@@ -6,11 +6,14 @@
         %button{ type: "button", class: "btn-close", "data-bs-dismiss": "alert", "aria-label": "Close" }
       
   .banner.d-flex.justify-content-center.align-items-center
+    .toolbar.d-flex.justify-content-end{ "data-controller": "action" }
+      %input{ type: "checkbox", class: "btn-check", id: "btn-check-outlined", autocomplete: "off", checked: english_language, data: { action: "action#language" } }
+      %label.btn.btn-outline-light.btn-sm{ for: "btn-check-outlined" }= t('pages.root.buttons.language.text')
     %span
     .content.text-center
-      %h1{ class: 'text-white' } Repositorios
-      %p{ class: 'text-white' } Obtenha a lista dos 5 melhores repositorio da atualidade. Click no botão a baixo e confira.
-      = button_to 'Importar', new_repository_path, method: :get, class: 'btn btn-outline-light btn-lg', data: { disable_with: "Importando..." }
+      %h1{ class: 'text-white' }= t('pages.root.title')
+      %p{ class: 'text-white' }= t('pages.root.subtitle')
+      = button_to t('pages.root.buttons.new.text'), new_repository_path, method: :get, class: 'btn btn-outline-light btn-lg', data: { disable_with: t('pages.root.buttons.new.disabled-text') }
     
   .row.d-flex.justify-content-center.mt-65-negative
     .col-11
@@ -27,4 +30,4 @@
                 %span.fs-6.text-max-two-line= repo.description
         - else
           .text-center.w-100.d-flex.justify-content-center.align-items-center
-            %span.fs-5 Nenhum repositório disponível para a apresentação.
+            %span.fs-5= t('pages.root.empty-list')

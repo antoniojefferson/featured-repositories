@@ -2,23 +2,23 @@
   
   .presentation-card
     .d-flex.justify-content-between
-      %h4 Detalhes
-      = button_to 'Voltar', root_path, method: :get, class: 'btn btn-outline-dark'
+      %h4= t('pages.show.title')
+      = button_to t('pages.show.buttons.back.text'), root_path, method: :get, class: 'btn btn-outline-dark'
 
     .row
       .col-12.d-flex.col-header
         .image.bg-image{ style: "background-image: url(#{@repository.avatar_url})" }
         .container-header
           %h5
-            %span.fw-bold Nome completo:
+            %span.fw-bold= t('pages.show.fields.full_name')
             = @repository.full_name
 
           %h5
-            %span.fw-bold Nome simples:
+            %span.fw-bold= t('pages.show.fields.name')
             %span.text-muted.fst-italic= @repository.name
           
           %h5
-            %span.fw-bold Linguagens usadas:
+            %span.fw-bold= t('pages.show.fields.languages')
             %div
               - get_json_keys(@repository.languages).each do |language|
                 %span.badge.rounded-pill.bg-dark.mb-1= language
@@ -26,62 +26,63 @@
 
     .d-flex.justify-content-between.flex-wrap.mb-3
       %div
-        %i.bi.bi-star{ title: 'Favoritado' }
+        %i.bi.bi-star{ title: t('pages.show.fields.favorite') }
         = @repository.stargazers_count
 
       %div
-        %i.bi.bi-eye{ title: 'Vizualizações' }
+        %i.bi.bi-eye{ title: t('pages.show.fields.views') }
         = @repository.watchers_count
 
       - if @repository.license.present?
         %div
-          %i.bi.bi-file-earmark-medical{ title: 'Licensa' }
+          %i.bi.bi-file-earmark-medical{ title: t('pages.show.fields.license') }
           = @repository.license
       
       - if @repository.current_tag.present?
         %div
-          %i.bi.bi-tag{ title: 'Tag atual' }
+          %i.bi.bi-tag{ title: t('pages.show.fields.tag') }
           = @repository.current_tag
 
 
     .row.mb-3
       .col-12
-        %span.fw-bold Descrição:
+        %span.fw-bold= t('pages.show.fields.description')
         = @repository.description
       
       .col-sm-12.col-md-4.col-lg-4
-        %span.fw-bold Principal linguagem:
+        %span.fw-bold= t('pages.show.fields.language')
         = @repository.language
 
       .col-sm-12.col-md-4.col-lg-4
-        %span.fw-bold Data de criação:
-        = @repository.created.to_date
+        %span.fw-bold= t('pages.show.fields.created')
+        = date_br(@repository.created)
 
       .col-sm-12.col-md-4.col-lg-4
-        %span.fw-bold Ultima atualização:
-        = @repository.pushed.to_date
+        %span.fw-bold= t('pages.show.fields.pushed')
+        = date_br(@repository.pushed)
 
     .row.mb-3
       - if @repository.languages.present?
         .col-sm-12.col-md-6.col-lg-6
-          %h5.fw-bold Percentual por linguagens
+          %h5.fw-bold= t('pages.show.fields.percentage-languages')
           %div
             - get_json_keys(@repository.languages).each do |language|
               = render partial: 'progress_bar',locals: { percentage: get_percentage(@repository.languages, language), language: language }
 
       .col-sm-12.col-md-6.col-lg-6
-        %h5.fw-bold Documentações
+        %h5.fw-bold= t('pages.show.docs.title')
         %p
-          Visite a documentação e leia mais sobre esta tecnologia
+          = t('pages.show.docs.documentation.text')
           - if @repository.homepage.present?
-            = link_to "click aqui", @repository.homepage, target: "_blank"
+            = link_to t('pages.show.docs.documentation.text-link'), @repository.homepage, target: "_blank"
         %p
-          Visite o repositorio e veja o poder que ele pode te entregar
+          = t('pages.show.docs.repository.text')
           - if @repository.html_url.present?
-            = link_to "click aqui", @repository.html_url, target: "_blank"
+            = link_to t('pages.show.docs.repository.text-link'), @repository.html_url, target: "_blank"
     
-    .row{ "data-controller": "action" }
+    .row{ "data-controller": "action", "data-action-propt-msg-value": t('pages.show.buttons.delete.msg-propt') }
       .col-12
-        %h6 Delete este repositorio 
-        = button_to "Deletar", repository_path(@repository.id), method: :delete, class: 'btn btn-outline-danger',
+        %h6= english_language
+        %h6= t('pages.show.buttons.delete.description')
+        = button_to t('pages.show.buttons.delete.text'), repository_path(@repository.id), method: :delete, class: 'btn btn-outline-danger',
         data: { action: "action#delete" }

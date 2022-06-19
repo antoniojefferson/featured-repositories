@@ -36,7 +36,7 @@ RSpec.describe 'Repository' do
 
     page.driver.browser.switch_to.alert.accept
 
-    expect(page).to have_content 'Repositório do react foi removido!'
+    expect(page).to have_content 'Repositório do React foi removido!'
     expect(page).to have_content 'Nenhum repositório disponível para a apresentação.'
   end
   # rubocop:enable RSpec/ExampleLength
