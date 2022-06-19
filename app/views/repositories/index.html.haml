@@ -20,14 +20,14 @@
       .matte-container
         - if @repos.present?
           - @repos.each do |repo|
-            .repository-card
-              .image.bg-image{ style: "background-image: url(#{repo.avatar_url})" }
-              .content
-                %h5.text-uppercase.fw-bold
-                  = link_to repo, class: "show-repo" do
+            = link_to repo, class: "show-repo" do
+              .repository-card
+                .image.bg-image{ style: "background-image: url(#{repo.avatar_url})" }
+                .content
+                  %h5.text-uppercase.fw-bold
                     = repo.name
-                %span.text-muted.fs-6.fst-italic.text-max-two-line= repo.full_name
-                %span.fs-6.text-max-two-line= repo.description
+                  %span.text-muted.fs-6.fst-italic.text-max-two-line= repo.full_name
+                  %span.fs-6.text-max-two-line= repo.description
         - else
           .text-center.w-100.d-flex.justify-content-center.align-items-center
             %span.fs-5= t('pages.root.empty-list')
