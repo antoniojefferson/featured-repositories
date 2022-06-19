@@ -58,7 +58,7 @@ class RepositoriesController < ApplicationController
     @repository.stargazers_count = repo['stargazers_count']
     @repository.watchers_count   = repo['watchers_count']
     @repository.language         = repo['language']
-    @repository.license          = repo['license']['name']
+    @repository.license          = repo['license']['name'] if repo['license'].present?
     @repository.save
   end
   # rubocop:enable Metrics
@@ -69,9 +69,9 @@ class RepositoriesController < ApplicationController
 
   def languages
     [
-      { language: 'javascript', framework: 'react' }, { language: 'javascript', framework: 'react-native' },
-      { language: 'python', framework: 'django' }, { language: 'dart', framework: 'flutter' },
-      { language: 'ruby', framework: 'rails' }
+      { language: 'python', full_name: 'cpython' }, { language: 'dart', full_name: 'pub' },
+      { language: 'typescript', full_name: 'typescript' }, { language: 'ruby', full_name: 'ruby' },
+      { language: 'elixir', full_name: 'elixir' }
     ]
   end
 end
