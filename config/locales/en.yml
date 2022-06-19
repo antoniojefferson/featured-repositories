@@ -40,7 +40,7 @@ en:
           text: Import
           disabled-text: Importing...
         language:
-          text: Portuguese language
+          text: English language
     show:
       title: Details
       buttons:
