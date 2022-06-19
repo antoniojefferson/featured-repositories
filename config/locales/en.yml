@@ -4,11 +4,11 @@
 #
 # To use the locales, use `I18n.t`:
 #
-#     I18n.t "hello"
+#     I18n.t 'hello'
 #
 # In views, this is aliased to just `t`:
 #
-#     <%= t("hello") %>
+#     <%= t('hello') %>
 #
 # To use a different locale, set it with `I18n.locale`:
 #
@@ -24,10 +24,57 @@
 # Instead, surround them with single quotes.
 #
 # en:
-#   "true": "foo"
+#   'true': 'foo'
 #
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  pages:
+    root:
+      title: Repositories
+      subtitle: Get the 5 best repository of the moment. Click the button below and check it out.
+      empty-list: No repository available for presentation.
+      buttons:
+        new: 
+          text: Import
+          disabled-text: Importing...
+        language:
+          text: Use the English language
+    show:
+      title: Details
+      buttons:
+        delete:
+          text: Delete
+          description: Delete this repository
+          msg-propt: Delete repository?
+        back:
+          text: Back
+      fields:
+        full_name: 'Full name:'
+        name: 'Name:'
+        languages: 'Used languages:'
+        favorite: Favorite
+        views: Views
+        license: License
+        tag: Current tag
+        description: 'Description:'
+        language: 'Main language:'
+        created: 'Creation date:'
+        pushed: 'Last update:'
+        percentage-languages: Percentage by languages
+      docs:
+        title: Documentation
+        documentation:
+          text: Visit the documentation and read more about this technology
+          text-link: click here
+        repository:
+          text: Visit the repository and see the power it can give you
+          text-link: click here
+  models:
+    repository:
+      save:
+        success: Repositories found and stored!
+        failure: Could not get all repositories. Please try again!
+      delete:
+        success: '%{repo} repository has been removed!'
