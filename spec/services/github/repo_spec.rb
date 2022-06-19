@@ -1,18 +1,18 @@
 require 'rails_helper'
 
-RSpec.describe Github::Repo, :vcr => true do
-  let!(:language) { { :language => 'javascript', :framework => 'react' } }
-  let!(:api) { ENV.fetch("API_GITHUB") }
-  
+RSpec.describe Github::Repo, vcr: true do
+  let!(:language) { { language: 'javascript', framework: 'react' } }
+  let!(:api) { ENV.fetch('API_GITHUB') }
+
   describe '.search' do
     it 'call the search with valid data' do
       expect(described_class.search(language).class).to eq(Hash)
-      expect(described_class.search(language)["name"]).to eq('react')
-      expect(described_class.search(language)["full_name"]).to eq('facebook/react')
+      expect(described_class.search(language)['name']).to eq('react')
+      expect(described_class.search(language)['full_name']).to eq('facebook/react')
     end
 
     it 'call the search with invalid data' do
-      expect(described_class.search({ :language => '', :framework => '*cvf4353' })).to eq(nil)
+      expect(described_class.search({ language: '', framework: '*cvf4353' })).to eq(nil)
     end
   end
 
